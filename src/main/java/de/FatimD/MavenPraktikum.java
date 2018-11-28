@@ -1,3 +1,8 @@
+package de.FatimD;
+
+/**
+ * class that convert a string to Uppercase
+ */
 import java.util.Scanner;
 
 public class MavenPraktikum {

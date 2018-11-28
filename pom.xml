@@ -31,7 +31,20 @@
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
   </properties>
+  
+  
+ <reporting>
+	<plugins>
+		<plugin>
+			<artifactId>maven-surefire-report-plugin</artifactId>
+		</plugin>
+		<plugin>
+			<artifactId>maven-javadoc-plugin</artifactId>
+		</plugin>
+	</plugins>
+</reporting>
 
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
