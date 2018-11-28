@@ -13,7 +13,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-   
         <configuration>
           <archive>
             <manifest>
@@ -22,8 +21,19 @@
             </manifest>
           </archive>
         </configuration>
-      
       </plugin>
+      
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.7.1</version>
+        </plugin>
+        <plugin>
+         	<groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>3.0.0</version>
+         </plugin>
+        
     </plugins>
   </build>
   
@@ -34,15 +44,13 @@
   
   
  <reporting>
-	<plugins>
+ 	<plugins>
 		<plugin>
-			<artifactId>maven-surefire-report-plugin</artifactId>
-		</plugin>
-		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
 		</plugin>
-	</plugins>
-</reporting>
+        </plugins>
+ </reporting>
 
   
   <dependencies>
