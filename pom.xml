@@ -33,6 +33,26 @@
             <artifactId>maven-project-info-reports-plugin</artifactId>
             <version>3.0.0</version>
          </plugin>
+         
+         <plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.7.8</version>
+			<executions>
+			<execution>
+			<id>default-prepare-agent</id>
+			<goals>
+			<goal>prepare-agent</goal>
+			</goals>
+			</execution>
+				<execution>
+				<id>default-report</id>
+				<goals>
+				<goal>report</goal>
+				</goals>
+				</execution>
+			</executions>
+		</plugin>
         
     </plugins>
   </build>
@@ -43,13 +63,20 @@
   </properties>
   
   
- <reporting>
+<reporting>
  	<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>
 		</plugin>
-        </plugins>
+		
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.7.8</version>
+		</plugin>
+      </plugins>
+            
  </reporting>
 
   
@@ -60,6 +87,25 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    
+	<dependency>
+    	<groupId>org.apache.maven.plugins</groupId>
+    	<artifactId>maven-javadoc-plugin</artifactId>
+    	<version>3.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hamcrest</groupId>
+		<artifactId>hamcrest-library</artifactId>
+		<version>1.3</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.easymock</groupId>
+    	<artifactId>easymock</artifactId>
+    	<version>4.0.2</version>
+    	<scope>test</scope>
+	</dependency>
+	
   </dependencies>
   
 </project>
