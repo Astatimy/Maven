@@ -10,6 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.easymock.EasyMock;
+import org.hamcrest.MatcherAssert;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.hamcrest.Matchers.is;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,6 +24,8 @@ import de.Domain.Resident;
 import de.Repository.ResidentRepository;
 
 public class BaseResidentServiceEasyMockTest {
+	
+	MatcherAssert Assert= new MatcherAssert();
 
 	BaseResidentService baseResidentService= new BaseResidentService();
 	Resident testResident1 = new Resident("James", "Morhisson" ,"Freiburgerstrasse", "Freiburg", new Date(316828800));
@@ -50,11 +57,12 @@ public class BaseResidentServiceEasyMockTest {
 		Resident filterResident= new Resident();
 		filterResident.setGivenName("Ja*");
 		List<Resident> listResident= baseResidentService.getFilteredResidentsList(filterResident);
-		assertNotNull(listResident);
-		assertEquals(3, listResident.size());
-		assertTrue(listResident.contains(testResident1));
+		EasyMock.verify(residentRepositoryMock);
+		MatcherAssert.assertThat(listResident,is(notNullValue()));
+		MatcherAssert.assertThat(listResident, hasSize(3));
 		assertTrue(listResident.contains(testResident3));
 		assertTrue(listResident.contains(testResident4));
+		
 	}
 	
 	@Test
@@ -62,7 +70,8 @@ public class BaseResidentServiceEasyMockTest {
 		Resident filterResident= new Resident();
 		filterResident.setStreet("Freiburgerstrasse");
 		List<Resident> listResident= baseResidentService.getFilteredResidentsList(filterResident);
-		assertNotNull(listResident);
+		EasyMock.verify(residentRepositoryMock);
+		MatcherAssert.assertThat(listResident, hasSize(2));
 		assertEquals(2, listResident.size());
 	}
 	
