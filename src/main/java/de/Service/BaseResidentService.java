@@ -126,8 +126,9 @@ public class BaseResidentService implements ResidentService {
     this.residentRepository = residentRepository;
   }
 
+
 @Override
-public List<Resident> getAllResident() {
+public List<Resident> getAllResidents() {
 	// TODO Auto-generated method stub
 	return null;
 }
