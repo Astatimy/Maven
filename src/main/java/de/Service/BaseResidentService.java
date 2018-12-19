@@ -128,7 +128,7 @@ public class BaseResidentService implements ResidentService {
 
 
 @Override
-public List<Resident> getAllResidents() {
+public List<Resident> getResidents() {
 	// TODO Auto-generated method stub
 	return null;
 }
